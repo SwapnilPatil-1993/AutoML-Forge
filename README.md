@@ -57,6 +57,28 @@ AutoML-Forge/
 ## Output details
 After training, the interface shows the best successful model, a metric table, a bar chart, test-set predictions and CSV downloads. The detailed walkthrough and metric definitions are in [Output Guide](docs/OUTPUT_GUIDE.md).
 
+## Sample outputs
+
+These are generated evaluation charts from the included synthetic teaching dataset. They are **result visualizations, not screenshots of a running Streamlit browser session**.
+
+### Regression model comparison
+![Regression model comparison](outputs/model_comparison.svg)
+
+### Actual versus predicted values
+![Actual versus predicted](outputs/prediction_comparison.svg)
+
+For the underlying numbers, see [model metrics CSV](outputs/regression_model_metrics.csv), [prediction CSV](outputs/regression_predictions.csv), and the [detailed test output](docs/TEST_OUTPUT.md).
+
+## Run locally
+
+1. Install Python 3.10 or newer.
+2. Install dependencies: `pip install -r requirements.txt`.
+3. Start the app: `streamlit run app.py`.
+4. Upload `data/student_performance.csv`, choose `final_score` as target and Regression as the task, then select **Train and compare models**.
+5. Export metrics/predictions from the app to inspect your own dataset.
+
+To run the automated tests: `pytest -q`.
+
 ## Project documentation
 - [Mini Project Report](docs/PROJECT_REPORT.md) — problem statement, objectives, architecture, modules, testing, limitations and future scope.
 - [ER Diagram / Conceptual Data Model](docs/ER_DIAGRAM.md) — Mermaid ER diagram with entity and relationship explanations. Note: this is a conceptual model; the current app does not persist these entities in database tables.
