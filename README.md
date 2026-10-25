@@ -63,6 +63,7 @@ After training, the interface shows the best successful model, a metric table, a
 - [Output Guide](docs/OUTPUT_GUIDE.md) — how to run both demos and interpret the metrics.
 - [Sample Test Output](docs/TEST_OUTPUT.md) — reproducible regression metrics, sample predictions, and verified CI test result.
 - [Metrics CSV](outputs/regression_model_metrics.csv) and [Predictions CSV](outputs/regression_predictions.csv) — downloadable sample results.
+- [Model Comparison Chart](outputs/model_comparison.svg) and [Actual vs Predicted Chart](outputs/prediction_comparison.svg) — generated visualizations from the sample evaluation.
 
 ## Limitations and responsible use
 This is an educational prototype. Scores depend on dataset quality and one train/test split, and may not generalize. Cross-validation, model persistence, stronger leakage checks and domain validation are future improvements. Do not upload sensitive personal or confidential data.
