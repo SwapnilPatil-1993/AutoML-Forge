@@ -61,6 +61,8 @@ After training, the interface shows the best successful model, a metric table, a
 - [Mini Project Report](docs/PROJECT_REPORT.md) — problem statement, objectives, architecture, modules, testing, limitations and future scope.
 - [ER Diagram / Conceptual Data Model](docs/ER_DIAGRAM.md) — Mermaid ER diagram with entity and relationship explanations. Note: this is a conceptual model; the current app does not persist these entities in database tables.
 - [Output Guide](docs/OUTPUT_GUIDE.md) — how to run both demos and interpret the metrics.
+- [Sample Test Output](docs/TEST_OUTPUT.md) — reproducible regression metrics, sample predictions, and verified CI test result.
+- [Metrics CSV](outputs/regression_model_metrics.csv) and [Predictions CSV](outputs/regression_predictions.csv) — downloadable sample results.
 
 ## Limitations and responsible use
 This is an educational prototype. Scores depend on dataset quality and one train/test split, and may not generalize. Cross-validation, model persistence, stronger leakage checks and domain validation are future improvements. Do not upload sensitive personal or confidential data.
