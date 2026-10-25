@@ -30,7 +30,10 @@ The user uploads a CSV through Streamlit. The application validates the dataset,
 
 Architecture flow: User → CSV upload → Dataset validation and preview → Target/task selection → Preprocessing pipeline → Train/test split → Candidate model training → Metrics and chart → Prediction and metrics CSV export.
 
-## 6. Main Modules
+## 6. ER Diagram / Conceptual Data Model
+The conceptual ER-style model is documented in [ER_DIAGRAM.md](ER_DIAGRAM.md). It describes Dataset, Feature, Target, Experiment, Model Run, Metric Set and Prediction entities and their relationships. This diagram documents the logical information handled during an experiment; it is not a claim that the application currently stores these as relational database tables. The current version processes data in memory and provides CSV downloads.
+
+## 7. Main Modules
 1. Data input and validation: reads CSV data and checks that it has sufficient rows and columns.
 2. Data quality summary: reports row count, column count and missing cells.
 3. Preprocessing: median imputation and scaling for numeric data; most-frequent imputation and one-hot encoding for categorical data.
