@@ -1,5 +1,5 @@
-Actual,Predicted
-48,47.6400
-81,80.9667
-88,86.3400
-61,66.0667
+Actual,Predicted,Match
+48,47.64,False
+81,80.96666666666667,False
+88,86.34,False
+61,66.06666666666666,False
