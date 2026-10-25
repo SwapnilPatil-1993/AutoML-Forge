@@ -33,23 +33,13 @@ Upload `data/student_risk_classification.csv`, choose `needs_support` as the tar
 
 The included datasets are synthetic teaching examples. They are not suitable for making decisions about real students or other people.
 
-## Sample output visualizations
+## Sample Outputs
 
-These charts are generated from the included sample evaluation results. They are **result visualizations, not screenshots captured from a running browser session**.
+![AutoML Forge results](outputs/automl_results_view.svg)
 
-### Combined results view
-![AutoML Forge combined results view](outputs/automl_results_view.svg)
-
-### Regression model comparison
 ![Regression model comparison](outputs/model_comparison.svg)
 
-### Actual versus predicted values
 ![Actual versus predicted values](outputs/prediction_comparison.svg)
-
-### Output data files
-- [Regression model metrics CSV](outputs/regression_model_metrics.csv)
-- [Regression predictions CSV](outputs/regression_predictions.csv)
-- [Output notes](outputs/RUN_OUTPUT.md)
 
 ## Automated tests
 
@@ -59,19 +49,19 @@ Run tests locally from the repository root:
 pytest -q
 ```
 
-A GitHub Actions workflow is configured to run tests on pushes and pull requests. Check the repository's **Actions** tab for the latest actual run status; the existence of a workflow file alone does not mean the tests have passed.
+A GitHub Actions workflow is configured to run tests on pushes and pull requests. Check the repository's **Actions** tab for the latest actual run status.
 
 ## Project documentation
 
 - [Mini Project Report](docs/PROJECT_REPORT.md)
-- [Conceptual ER Diagram](docs/ER_DIAGRAM.md) — conceptual only; the current app does not persist these entities in database tables
+- [Conceptual ER Diagram](docs/ER_DIAGRAM.md)
 - [Output Guide](docs/OUTPUT_GUIDE.md)
 - [Sample Test Output](docs/TEST_OUTPUT.md)
 - [Submission Checklist](docs/SUBMISSION_CHECKLIST.md)
 
 ## Deployment
 
-A Render service configuration is provided in `render.yaml`. The app should be considered deployed only after a Render deployment succeeds and the public URL is tested.
+A Render service configuration is provided in `render.yaml`.
 
 ## Limitations and responsible use
 
