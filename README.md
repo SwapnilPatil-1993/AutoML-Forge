@@ -1,91 +1,78 @@
 # AutoML Forge
 
-AutoML Forge is an educational AutoML workbench that helps users inspect a CSV dataset, preprocess mixed data, compare machine-learning models, review predictions and export results. It supports both regression and classification tasks.
+AutoML Forge is an educational AutoML workbench built with Python and Streamlit. It lets users upload a CSV dataset, choose a prediction target, compare machine-learning models, inspect evaluation metrics, view predictions, and export results.
 
 ## Features
-- CSV upload, preview, row/column summary and missing-value checks
-- Automatic numeric and categorical preprocessing
-- Classification and regression workflows
-- Dummy baseline plus multiple candidate estimators
-- Classification metrics: Accuracy, weighted Precision, weighted Recall and weighted F1
-- Regression metrics: MAE, RMSE and R²
-- Model-comparison chart and best-model prediction table
-- Downloadable predictions and metrics CSV files
-- Two included demo datasets
-- Reusable evaluation engine and pytest test suite
-- GitHub Actions workflow configured for automated tests
-- Project report and output guide under docs/
+
+- CSV upload, dataset preview, row/column summary, and missing-value checks
+- Automatic preprocessing for numeric and categorical columns
+- Regression and classification workflows
+- Baseline model and multiple candidate estimators
+- Regression metrics: MAE, RMSE, and R²
+- Classification metrics: Accuracy, weighted Precision, weighted Recall, and weighted F1
+- Model-comparison chart and prediction table
+- Downloadable metrics and prediction CSV files
+- Included demo datasets and automated tests
 
 ## Run locally
+
 1. Install Python 3.10 or newer.
-2. Clone or download this repository.
-3. Optional but recommended: create and activate a virtual environment.
-4. Install dependencies: `pip install -r requirements.txt`
-5. Start the app: `streamlit run app.py`
-6. Open the local URL printed by Streamlit.
+2. Install dependencies:
+   `pip install -r requirements.txt`
+3. Start the app:
+   `streamlit run app.py`
+4. Open the local URL printed by Streamlit.
 
 ## Demo A — Regression
-Upload `data/student_performance.csv`, choose `final_score` as the target, select **Regression**, and click **Train and compare models**. Review MAE, RMSE, R², the comparison chart, predictions and CSV export buttons.
+
+Upload `data/student_performance.csv`, choose `final_score` as the target, select **Regression**, and click **Train and compare models**.
 
 ## Demo B — Classification
-Upload `data/student_risk_classification.csv`, choose `needs_support` as the target, select **Classification**, and click **Train and compare models**. Review accuracy, weighted precision, weighted recall and weighted F1.
 
-The datasets are synthetic teaching examples. They are not suitable for making decisions about real students or other people.
+Upload `data/student_risk_classification.csv`, choose `needs_support` as the target, select **Classification**, and click **Train and compare models**.
 
-## Run automated tests
-Run `pytest -q` from the repository root. The GitHub Actions workflow is configured to run the tests on pushes and pull requests to `main`. Check the Actions tab for the actual result; a workflow file existing does not itself mean a run passed.
+The included datasets are synthetic teaching examples. They are not suitable for making decisions about real students or other people.
 
-## Repository structure
-```text
-AutoML-Forge/
-├── app.py
-├── automl_engine.py
-├── requirements.txt
-├── README.md
-├── data/
-│   ├── student_performance.csv
-│   └── student_risk_classification.csv
-├── tests/
-│   ├── test_dataset.py
-│   └── test_automl_engine.py
-├── docs/
-│   ├── OUTPUT_GUIDE.md
-│   └── PROJECT_REPORT.md
-└── .github/workflows/test.yml
-```
+## Sample output visualizations
 
-## Output details
-After training, the interface shows the best successful model, a metric table, a bar chart, test-set predictions and CSV downloads. The detailed walkthrough and metric definitions are in [Output Guide](docs/OUTPUT_GUIDE.md).
+These charts are generated from the included sample evaluation results. They are **result visualizations, not screenshots captured from a running browser session**.
 
-## Sample outputs
-
-These are generated evaluation charts from the included synthetic teaching dataset. They are **result visualizations, not screenshots of a running Streamlit browser session**.
+### Combined results view
+![AutoML Forge combined results view](outputs/automl_results_view.svg)
 
 ### Regression model comparison
 ![Regression model comparison](outputs/model_comparison.svg)
 
 ### Actual versus predicted values
-![Actual versus predicted](outputs/prediction_comparison.svg)
+![Actual versus predicted values](outputs/prediction_comparison.svg)
 
-For the underlying numbers, see [model metrics CSV](outputs/regression_model_metrics.csv), [prediction CSV](outputs/regression_predictions.csv), and the [detailed test output](docs/TEST_OUTPUT.md).
+### Output data files
+- [Regression model metrics CSV](outputs/regression_model_metrics.csv)
+- [Regression predictions CSV](outputs/regression_predictions.csv)
+- [Output notes](outputs/RUN_OUTPUT.md)
 
-## Run locally
+## Automated tests
 
-1. Install Python 3.10 or newer.
-2. Install dependencies: `pip install -r requirements.txt`.
-3. Start the app: `streamlit run app.py`.
-4. Upload `data/student_performance.csv`, choose `final_score` as target and Regression as the task, then select **Train and compare models**.
-5. Export metrics/predictions from the app to inspect your own dataset.
+Run tests locally from the repository root:
 
-To run the automated tests: `pytest -q`.
+```bash
+pytest -q
+```
+
+A GitHub Actions workflow is configured to run tests on pushes and pull requests. Check the repository's **Actions** tab for the latest actual run status; the existence of a workflow file alone does not mean the tests have passed.
 
 ## Project documentation
-- [Mini Project Report](docs/PROJECT_REPORT.md) — problem statement, objectives, architecture, modules, testing, limitations and future scope.
-- [ER Diagram / Conceptual Data Model](docs/ER_DIAGRAM.md) — Mermaid ER diagram with entity and relationship explanations. Note: this is a conceptual model; the current app does not persist these entities in database tables.
-- [Output Guide](docs/OUTPUT_GUIDE.md) — how to run both demos and interpret the metrics.
-- [Sample Test Output](docs/TEST_OUTPUT.md) — reproducible regression metrics, sample predictions, and verified CI test result.
-- [Metrics CSV](outputs/regression_model_metrics.csv) and [Predictions CSV](outputs/regression_predictions.csv) — downloadable sample results.
-- [Model Comparison Chart](outputs/model_comparison.svg) and [Actual vs Predicted Chart](outputs/prediction_comparison.svg) — generated visualizations from the sample evaluation.
+
+- [Mini Project Report](docs/PROJECT_REPORT.md)
+- [Conceptual ER Diagram](docs/ER_DIAGRAM.md) — conceptual only; the current app does not persist these entities in database tables
+- [Output Guide](docs/OUTPUT_GUIDE.md)
+- [Sample Test Output](docs/TEST_OUTPUT.md)
+- [Submission Checklist](docs/SUBMISSION_CHECKLIST.md)
+
+## Deployment
+
+A Render service configuration is provided in `render.yaml`. The app should be considered deployed only after a Render deployment succeeds and the public URL is tested.
 
 ## Limitations and responsible use
-This is an educational prototype. Scores depend on dataset quality and one train/test split, and may not generalize. Cross-validation, model persistence, stronger leakage checks and domain validation are future improvements. Do not upload sensitive personal or confidential data.
+
+This is an educational prototype. Metrics depend on the dataset and train/test split and may not generalize. Cross-validation, model persistence, and more extensive data-leakage checks are possible future improvements. Do not upload sensitive personal or confidential data.
