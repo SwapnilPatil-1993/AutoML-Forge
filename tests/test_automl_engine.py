@@ -46,3 +46,32 @@ def test_classification_evaluation_returns_f1_metric():
     })
     result = evaluate_models(frame, "support", "Classification", 0.2)
     assert "F1 (weighted)" in result["results"].columns
+
+
+
+def test_included_student_performance_demo_dataset():
+    from pathlib import Path
+
+    dataset = Path(__file__).resolve().parents[1] / "data" / "student_performance.csv"
+    frame = pd.read_csv(dataset)
+    result = evaluate_models(frame, "final_score", "Regression", 0.2)
+
+    assert len(frame) >= 10
+    assert result["task"] == "Regression"
+    assert "RMSE" in result["results"].columns
+    assert (result["results"]["Status"] == "Success").any()
+    assert len(result["best_predictions"]) == len(result["y_test"])
+
+
+def test_included_student_risk_demo_dataset():
+    from pathlib import Path
+
+    dataset = Path(__file__).resolve().parents[1] / "data" / "student_risk_classification.csv"
+    frame = pd.read_csv(dataset)
+    result = evaluate_models(frame, "needs_support", "Classification", 0.2)
+
+    assert len(frame) >= 10
+    assert result["task"] == "Classification"
+    assert "F1 (weighted)" in result["results"].columns
+    assert (result["results"]["Status"] == "Success").any()
+    assert len(result["best_predictions"]) == len(result["y_test"])
