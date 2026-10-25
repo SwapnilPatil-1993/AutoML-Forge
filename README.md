@@ -58,7 +58,9 @@ AutoML-Forge/
 After training, the interface shows the best successful model, a metric table, a bar chart, test-set predictions and CSV downloads. The detailed walkthrough and metric definitions are in [Output Guide](docs/OUTPUT_GUIDE.md).
 
 ## Project documentation
-See [Mini Project Report](docs/PROJECT_REPORT.md) for the problem statement, objectives, architecture, modules, testing approach, limitations and future scope.
+- [Mini Project Report](docs/PROJECT_REPORT.md) — problem statement, objectives, architecture, modules, testing, limitations and future scope.
+- [ER Diagram / Conceptual Data Model](docs/ER_DIAGRAM.md) — Mermaid ER diagram with entity and relationship explanations. Note: this is a conceptual model; the current app does not persist these entities in database tables.
+- [Output Guide](docs/OUTPUT_GUIDE.md) — how to run both demos and interpret the metrics.
 
 ## Limitations and responsible use
 This is an educational prototype. Scores depend on dataset quality and one train/test split, and may not generalize. Cross-validation, model persistence, stronger leakage checks and domain validation are future improvements. Do not upload sensitive personal or confidential data.
