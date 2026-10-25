@@ -42,19 +42,27 @@ The conceptual ER-style model is documented in [ER_DIAGRAM.md](ER_DIAGRAM.md). I
 6. Results and export: sorts results, charts metrics, shows actual and predicted values, and provides downloadable CSV files.
 7. Quality checks: tests cover dataset structure, preprocessing, model catalogue, evaluation and invalid targets.
 
-## 7. Sample Demonstration
+## 8. Sample Demonstration
 ### Regression
 Upload data/student_performance.csv, choose final_score as target and choose Regression. Output includes a model-comparison table with MAE, RMSE and R², a chart, the selected model name, prediction rows and two CSV download controls.
 
 ### Classification
 Upload data/student_risk_classification.csv, choose needs_support as target and choose Classification. Output includes accuracy, weighted precision, weighted recall and weighted F1 for each successful model, plus a chart and prediction download.
 
-Exact scores are data-dependent. Record actual results from a local run if numerical results are required; do not treat illustrative values as measured results.
+Exact scores are data-dependent. The repository's included regression demonstration is documented in [TEST_OUTPUT.md](TEST_OUTPUT.md). The charts below are generated from the sample evaluation outputs; they are not screenshots of a running Streamlit session.
 
-## 8. Testing and Quality Assurance
-The repository includes tests for dataset structure, mixed-type preprocessing, regression evaluation, classification evaluation and invalid target handling. A GitHub Actions workflow is configured to install dependencies and run pytest on pushes and pull requests to main. The workflow configuration is present; confirm a successful run from the GitHub Actions tab before claiming tests passed.
+### Regression model comparison
+![Regression model comparison](../outputs/model_comparison.svg)
 
-## 9. Limitations
+### Actual versus predicted values
+![Actual versus predicted values](../outputs/prediction_comparison.svg)
+
+Downloadable result files: [model metrics CSV](../outputs/regression_model_metrics.csv) · [prediction CSV](../outputs/regression_predictions.csv).
+
+## 9. Testing and Quality Assurance
+The repository includes tests for dataset structure, mixed-type preprocessing, regression evaluation, classification evaluation and invalid target handling. A GitHub Actions workflow is configured to install dependencies and run pytest on pushes and pull requests to main. The latest verified GitHub Actions run completed successfully. See the [workflow history](https://github.com/SwapnilPatil-1993/AutoML-Forge/actions) and [test output notes](TEST_OUTPUT.md).
+
+## 10. Limitations
 - The current version evaluates one train/test split rather than cross-validation.
 - Results depend on dataset size, quality, target selection and class balance.
 - Some estimators may be skipped for unsupported or unsuitable data; the app reports the status.
@@ -62,7 +70,7 @@ The repository includes tests for dataset structure, mixed-type preprocessing, r
 - This is an educational prototype, not a validated decision-making system.
 - Sensitive or confidential data should not be uploaded.
 
-## 10. Future Scope
+## 11. Future Scope
 - Add cross-validation and configurable scoring strategies.
 - Add feature-importance and error-analysis views.
 - Add model persistence and reproducible experiment history.
@@ -70,5 +78,5 @@ The repository includes tests for dataset structure, mixed-type preprocessing, r
 - Add PDF/HTML experiment report export.
 - Add responsible-AI checks and dataset documentation.
 
-## 11. Conclusion
+## 12. Conclusion
 AutoML Forge demonstrates a beginner-friendly machine-learning workflow: data inspection, preprocessing, training, comparison, evaluation and export. Its modular structure, sample datasets, tests and documentation make it suitable for a college mini-project demonstration. Before presenting numerical performance claims, run the app locally and capture actual results.
